@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "65c1694c-89fe-42cf-8e3c-9d84cc440551",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37951605"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.test(\"Product 1 has Id = 1\", () => {\r",
+							"    pm.expect(jsonData[0].Id).to.equal(1);\r",
+							"});\r",
+							"pm.test(\"Product 1 has Name = 'Tomato Soup'\", () => {\r",
+							"    pm.expect(jsonData[0].Name).to.equal(\"Tomato Soup\");\r",
+							"});\r",
+							"pm.test(\"Product 1 has Category = 'Groceries'\", () => {\r",
+							"    pm.expect(jsonData[0].Category).to.equal(\"Groceries\");\r",
+							"});\r",
+							"pm.test(\"Product 1 has Price = 1.0\", () => {\r",
+							"    pm.expect(jsonData[0].Price).to.equal(1.0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Product 2 has Id = 2\", () => {\r",
+							"    pm.expect(jsonData[1].Id).to.equal(2);\r",
+							"});\r",
+							"pm.test(\"Product 2 has Name = 'Yo-yo'\", () => {\r",
+							"    pm.expect(jsonData[1].Name).to.equal(\"Yo-yo\");\r",
+							"});\r",
+							"pm.test(\"Product 2 has Category = 'Toys'\", () => {\r",
+							"    pm.expect(jsonData[1].Category).to.equal(\"Toys\");\r",
+							"});\r",
+							"pm.test(\"Product 2 has Price = 3.75\", () => {\r",
+							"    pm.expect(jsonData[1].Price).to.equal(3.75);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Product 3 has Id = 3\", () => {\r",
+							"    pm.expect(jsonData[2].Id).to.equal(3);\r",
+							"});\r",
+							"pm.test(\"Product 3 has Name = 'Hammer'\", () => {\r",
+							"    pm.expect(jsonData[2].Name).to.equal(\"Hammer\");\r",
+							"});\r",
+							"pm.test(\"Product 3 has Category = 'Hardware'\", () => {\r",
+							"    pm.expect(jsonData[2].Category).to.equal(\"Hardware\");\r",
+							"});\r",
+							"pm.test(\"Product 3 has Price = 16.99\", () => {\r",
+							"    pm.expect(jsonData[2].Price).to.equal(16.99);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is 200 OK\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44366/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44366",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Product has Id = 1\", () => {\r",
+							"    pm.expect(jsonData.Id).to.equal(1);\r",
+							"});\r",
+							"pm.test(\"Product has Name = 'Tomato Soup'\", () => {\r",
+							"    pm.expect(jsonData.Name).to.equal(\"Tomato Soup\");\r",
+							"});\r",
+							"pm.test(\"Product has Category = 'Groceries'\", () => {\r",
+							"    pm.expect(jsonData.Category).to.equal(\"Groceries\");\r",
+							"});\r",
+							"pm.test(\"Product has Price = 1.0\", () => {\r",
+							"    pm.expect(jsonData.Price).to.equal(1.0);\r",
+							"});\r",
+							"pm.test(\"Response is 200 OK\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44366/api/products/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44366",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
